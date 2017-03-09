@@ -12,17 +12,17 @@
     
     <body>
         <h1>Signup</h1>
-        <form method="post">
+        <form method="post">{% csrf_token %}
             <table>
                 <tr>
                     <th> 
                         <label>Username</label>
                     </th>
                     <th>
-                        <input type="text" name="username" value={{username}}>
+                        <input type="text" name='username' value={{ username }}>
                     </th>
                     <th>
-                        <div>{{un_error}}</div>
+                        <div>{{ n_error }}</div>
                     </th>
                 </tr>
                 
@@ -31,10 +31,10 @@
                         <label>Password</label>
                     </th>
                     <th>
-                        <input type="password" name="password" value={{password}}>
+                        <input type="password" name="password" value={{ password }}>
                     </th>
                     <th>
-                        <div>{{p_error}}</div>
+                        <div>{{ p_error }}</div>
                     </th>
                 </tr>
                 
@@ -43,10 +43,10 @@
                          <label>Verify password</label>
                     </th>
                     <th>
-                        <input type="password" name="verify" value={{verify}}>
+                        <input type="password" name="verify" value={{ verify }}>
                     </th>
                     <th>
-                        <div>{{vp_error}}</div>
+                        <div>{{ vp_error }}</div>
                     </th>
                 </tr>
                 
@@ -55,10 +55,10 @@
                         <label>Email (optional)</label>
                     </th>
                     <th>
-                        <input type="text" name="email" value={{email}}>
+                        <input type="text" name="email" value={{ email }}>
                     </th>
                     <th>
-                        <div>{{e_error}}</div>
+                        <div>{{ e_error }}</div>
                     </th>
                 </tr>
                 

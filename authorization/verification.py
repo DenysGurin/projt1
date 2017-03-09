@@ -22,3 +22,14 @@ def chek_password(password):
 def chek_email(email):
     return not email or EMAIL_RE.match(email)
                                  
+# if not chek_username('111'):
+# 	print "ne"
+# if not chek_password('111'):
+# 	print 'pa'
+# elif '111' != '111':
+# 	print 'con'
+
+# if not chek_email(''):
+# 	print 'em'
+# if USERNAME_RE.match('11'):
+# 	print "re"

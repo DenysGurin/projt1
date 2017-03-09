@@ -5,22 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" type="text/css" href="/static/auth/style.css">
 <style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
-    background-image: url('/static/nature-forest-trees-fog.jpeg');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
+
 </style>
 <body>
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
   <div class="w3-display-bottomright w3-padding-large w3-xlarge">
-    <a href="/login">Login</a> 
-    <a href="/singin">Singin</a> 
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Singin</button>
   </div>
   
   <div class="w3-display-middle">
@@ -30,9 +25,89 @@ body, html {height: 100%}
   </div>
   <div class="w3-display-bottomleft w3-padding-large">
     Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-  </div>
-</div>
+  </div> 
 
+  <div id="id01" class="modal">
+    
+    <form class="modal-content animate" method="post">{% csrf_token %}
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" value={{username}}>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" value={{password}}>
+          
+        <button type="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+
+  <div id="id02" class="modal">
+    
+    <form class="modal-content animate" method="post">{% csrf_token %}
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" value={{username}}>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" value={{password}}>
+        
+        <label><b>Confirm</b></label>
+        <input type="password" placeholder="Confirm Password" name="confirm" value={{confirm}}>
+
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" value={{email}}>
+          
+        <button type="submit">Singin</button>
+        <input type="checkbox" checked="checked"> Remember me
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById('id02');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+</div>
 </body>
 </html>
 
