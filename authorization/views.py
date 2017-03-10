@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.base import View
+
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+
+#from .models import AuthUser
 from . import verification, protection
 
 
@@ -16,10 +21,11 @@ class Welcome(View):
         email = request.POST.get('email')
         kwargs = {'username': username,
                     'email': email}
-        # if self.exists(username, "username", "User"):
-        #    verifyed = True
-        #    kwargs["un_error"] = EXISTS_ERROR
-        if not verification.chek_username(username):
+
+        if username in [user.username for user in User.objects.all()]:#User.objects.get(username=username).username:
+           verifyed = True
+           kwargs["un_error"] = verification.EXISTS_ERROR
+        elif not verification.chek_username(username):
             verifyed = True
             kwargs['n_error'] = verification.USERNAME_ERROR
 
@@ -37,10 +43,16 @@ class Welcome(View):
         if verifyed:
             return render(request, 'welcome.html', kwargs)
         else:
+            user = User.objects.create_user(username=username, password=password, email=email)
+            user.save()
             # user_instance = User(username=username, password=Protection.make_pw_hash(username, password), email=email)
             # user_instance.put()
             # self.add_cookie("username", Protection.make_secure_val(str(username)))
             return redirect('/polls')
+
+class Print(View):
+    def get(self, request):
+        return HttpResponse(None)
 # class Singin(View):
 # 	def get(self, request):
 # 		return render(request, 'singin.html', {})

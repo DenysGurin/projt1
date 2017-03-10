@@ -12,7 +12,7 @@ EMAIL_ERROR = "That's not a valid email."
 EXISTS_ERROR = "That user already exists"
 LOGIN_ERROR = "Invalid login"
 
-
+        
 def chek_username(username):
     return username and USERNAME_RE.match(username)
     
