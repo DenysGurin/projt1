@@ -45,6 +45,7 @@ class Welcome(View):
             else:
                 user = User.objects.create_user(username=username, password=password, email=email)
                 user.save()
+                login(request, user)
                 # user_instance = User(username=username, password=Protection.make_pw_hash(username, password), email=email)
                 # user_instance.put()
                 # self.add_cookie("username", Protection.make_secure_val(str(username)))
