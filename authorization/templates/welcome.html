@@ -40,9 +40,10 @@
 
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" value={{password}}>
-        <div>{{login_er}}</div>
-          
+        <div> {{login_er}} </div>
+        
         <button type="submit" name="submit" value="login">Login</button>
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
         <input type="checkbox" checked="checked"> Remember me
       </div>
 

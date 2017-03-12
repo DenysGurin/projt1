@@ -21,4 +21,5 @@ urlpatterns = [
 	url(r'^polls/', include('polls.urls')),
 	url(r'^data/', include('data.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
