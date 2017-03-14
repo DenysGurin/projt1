@@ -43,7 +43,8 @@
         <div> {{login_er}} </div>
         
         <button type="submit" name="submit" value="login">Login</button>
-        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+        <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+        <a href="{% url "social:begin" "google-oauth2" %}">Google</a>
         <input type="checkbox" checked="checked"> Remember me
       </div>
 
