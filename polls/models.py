@@ -7,3 +7,4 @@ class Poll(models.Model):
 	picture = models.CharField(max_length=60, null=True)
 	code = models.TextField(null=True)
 	pub_date = models.DateTimeField('date published')
+	image = models.FileField(upload_to='polls/static', null=True)
