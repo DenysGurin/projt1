@@ -20,8 +20,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 </nav>
 
 <!-- Top menu -->
-<div class="w3-top">
-  <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
+<div class="w3-top w3-green">
+  <div class="w3-green w3-xlarge w3-padding-xlarge" style="max-width:auto;margin:auto">
     <div class="w3-left w3-opennav w3-hover-text-grey" onclick="w3_open()">☰Menu</div>
     <div class="w3-right"><a href="/logout">Logout</a></div>
     <div class="w3-center">Polls</div>
@@ -29,19 +29,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 </div>
   
 <!-- !PAGE CONTENT! -->
-<form name="content" class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px" method=post>{% csrf_token %}
+<form name="content" class="w3-main w3-content w3-padding" style="max-width:1300px;margin-top:100px" method=post>{% csrf_token %}
 <!-- <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px"> -->
   {% if polls %}
     <!-- First Photo Grid-->
     
-      
-    
-    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-row-padding w3-center " id="food">
     {% for poll in polls.all %}
-      <div class="w3-quarter">
-        <img src={{ poll.picture }} style="width:100px height:100px">
-        <h3>{{ poll.name }}</h3> <!-- The Perfect Sandwich, A Real NYC Classic -->
-        <p>{{ poll.context }}</p> <!-- Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. -->
+      <div class="w3-quarter w3-mobile w3-padding-8">
+        <div class="w3-card-4">
+          <div class="w3-container w3-light-green w3-text-white">
+            <h3>{{ poll.name }}</h3> <!-- The Perfect Sandwich, A Real NYC Classic -->
+          </div>
+          <img class="w3-margin" src={{ poll.picture }} style= "height: 150px">
+          <div class="w3-container">
+            <p>{{ poll.description }}</p> <!-- Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. -->
+          </div>
+          <input type="button" name={{ poll.name }} class="w3-button w3-green w3-block" value="Button">
+        </div>
       </div>
     {% endfor %}
       <!-- <div class="w3-quarter">
