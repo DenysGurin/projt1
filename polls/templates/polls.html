@@ -45,7 +45,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
           <div class="w3-container">
             <p>{{ poll.description }}</p> <!-- Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. -->
           </div>
-          <input type="button" name={{ poll.name }} class="w3-button w3-green w3-block" value="Button">
+          <button type="submit" name="test" class="w3-button w3-green w3-block" value={{poll.id}}>Start</button>
         </div>
       </div>
     {% endfor %}
